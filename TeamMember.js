@@ -1,4 +1,5 @@
-function openMember(path) {
-  const basePath = window.location.origin + "/Portfolio.github.io/";
-  window.open(basePath + path.replace("Portfolio.github.io/", ""), "_blank");
+function openMember(relativePath) {
+  const currentBase = window.location.pathname.split("/")[1]; // = "Portfolio.github.io"
+  const fullPath = "/" + currentBase + "/" + relativePath;
+  window.open(fullPath, "_blank");
 }
