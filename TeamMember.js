@@ -1,3 +1,10 @@
+let memberWin = null;
 function openMember(url) {
-  window.open(url, '_blank'); // '_blank' mở trong tab mới
+  const name = 'memberWindow'; // tên cố định để tái sử dụng tab
+  if (!memberWin || memberWin.closed) {
+    memberWin = window.open(url, name);
+  } else {
+    memberWin.location.href = url;
+    memberWin.focus();
+  }
 }
