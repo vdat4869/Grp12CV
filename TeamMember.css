@@ -1,0 +1,111 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Orbitron', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #1f1f2e, #0a0a1f);
+  color: white;
+  height: 100vh;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container {
+  text-align: center;
+  padding: 40px;
+  backdrop-filter: blur(20px);
+}
+
+h1 {
+  font-size: 3rem;
+  color: #00fff0;
+  margin-bottom: 40px;
+  text-shadow: 0 0 10px #00fff0, 0 0 30px #00fff0;
+  animation: glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px #00fff0;
+  }
+  to {
+    text-shadow: 0 0 20px #00fff0, 0 0 40px #00fff0;
+  }
+}
+
+.members {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.member-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 20px;
+  width: 250px;
+  transition: transform 0.4s, box-shadow 0.4s;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.3);
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.member-card::before {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(120deg, #00fff0, #0077ff, #ff00cc);
+  animation: rotate 6s linear infinite;
+  top: -50%;
+  left: -50%;
+  z-index: 0;
+  opacity: 0.1;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  } 100% {
+    transform: rotate(360deg);
+  }
+}
+
+.member-card img {
+  width: 100%;
+  height: 200px;
+  border-radius: 15px;
+  object-fit: cover;
+  z-index: 1;
+  position: relative;
+}
+
+.member-card h2, .member-card p {
+  margin-top: 15px;
+  z-index: 1;
+  position: relative;
+}
+
+.member-card h2 {
+  color: #00ffff;
+  font-size: 1.3rem;
+}
+
+.member-card p {
+  color: #ccc;
+  font-size: 1rem;
+}
+
+.member-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 30px #00fff0;
+}
